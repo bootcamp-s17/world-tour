@@ -26,8 +26,8 @@ This website will have a public-facing homepage that lists the current tour date
 
   id (primary key)
   tour_id (foreign key, references id on tours)
-  date (datetime)
-  location (string)
+  when (datetime)
+  where (string)
   Eloquent's default timestamps
 
 7. Seed your tables with data. Consult 'database-hints.md' if you need help.
