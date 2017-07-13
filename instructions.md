@@ -30,20 +30,20 @@ This website will have a public-facing homepage that lists the current tour date
   location (string)
   Eloquent's default timestamps
 
-7. Create a Stop model. Remember that stops belongTo tours.
+7. Seed your tables with data. Consult 'database-hints.md' if you need help.
 
-8. Create a Tour model. Remember that a tour hasMany stops.
+8. Create a Stop model. Remember that stops belongTo tours. Test it in tinker.
 
-9. Create StopsController resource controller (-r flag).
+9. Create a Tour model. Remember that a tour hasMany stops. Test it in tinker.
 
-10. Create a ToursController resource controller (-r flag).
+10. Create StopsController resource controller (-r flag).
 
-11. Create a resource route in routes/web.php for /stops and assign StopsController to it.
+11. Create a ToursController resource controller (-r flag).
 
-12. Create a resource route in routes/web.php for /tours and assign ToursController to it.
+12. Create a resource route in routes/web.php for /stops and assign StopsController to it.
 
-13. Seed your tables with data. Use the 
+13. Create a resource route in routes/web.php for /tours and assign ToursController to it.
 
-14. Begin working on the functions in StopsController and ToursController. You may create temporary 
+14. Begin working on the functions in StopsController and ToursController.
 
 
