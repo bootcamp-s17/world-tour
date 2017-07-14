@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::resource('/stops', 'StopsController');
+Route::resource('/', 'StopsController');
 Route::resource('/tours', 'ToursController');
+

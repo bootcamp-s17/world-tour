@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Stop;
+use App\Tour;
 use Illuminate\Http\Request;
 
 class StopsController extends Controller
@@ -14,7 +15,9 @@ class StopsController extends Controller
      */
     public function index()
     {
-        //
+        $tours = Tour::all();
+        $stops = Stop::orderBy('date', 'asc')->get();
+        return view('stops.index', compact('stops', 'tours'));
     }
 
     /**

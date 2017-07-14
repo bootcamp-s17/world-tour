@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Tour;
+use App\Stop;
+use App\User;
 use Illuminate\Http\Request;
 
 class ToursController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,10 @@ class ToursController extends Controller
      */
     public function index()
     {
-        //
+
+        $tours = Tour::all();
+        $stops = Stop::all();
+        return view('tours.index', compact('tours', 'stops'));
     }
 
     /**
@@ -24,7 +34,7 @@ class ToursController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +45,9 @@ class ToursController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tour::create(request(['name']));
+        $tours = Tour::all();
+        return view('tours.index', compact('tours'));
     }
 
     /**
