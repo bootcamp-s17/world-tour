@@ -15,10 +15,14 @@ class CreateStopsTable extends Migration
     {
         Schema::create('stops', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->datetime('when');
+            $table->string('where');
+            $table->integer('tour_id')->unsigned();
+            $table->foreign('tour_id')->references('id')->on('tours');
             $table->softDeletes();
             $table->timestamps();
-        }
+        });
+        
     }
 
     /**
@@ -28,6 +32,6 @@ class CreateStopsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('stops');
     }
 }
