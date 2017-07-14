@@ -8,21 +8,21 @@ This website will have a public-facing homepage that lists the current tour date
 
 ### Phase 1
 
-1. Clone this repo and create your own branch. The branch name should be your first name + last initial (for example, 'scoobyd'). Do not make changes to the master branch.
+1. Clone this repo and create your own <br>anch. The branch name should be your first name + last initial (for example, 'scoobyd'). Do not make changes to the master branch. - DONE
 
-2. Create a database and a PostgreSQL user. The database user, its password, and your database name should all be your first name + last initial (for example, 'barneyr' or 'fredf').
+2. Create a database and a PostgreSQL user. The database user, its password, and your database name should all be your first name + last initial (for example, 'barneyr' or 'fredf'). - DONE
 
-3. Create a new Laravel project called 'App'.
+3. Create a new Laravel project called 'App'. - DONE
 
-4. Add authentication to App.
+4. Add authentication to App. - DONE
 
-5. Create a migration to make the tours table. Include the following fields:
+5. Create a migration to make the tours table. Include the following fields: - DONE
 
   id
   name
   Eloquent's default timestamps
 
-6. Create a migration to make the stops table. Include the following fields:
+6. Create a migration to make the stops table. Include the following fields: - DONE
 
   id (primary key)
   tour_id (foreign key, references id on tours)
@@ -32,9 +32,9 @@ This website will have a public-facing homepage that lists the current tour date
 
 7. Seed your tables with data. Consult 'database-hints.md' if you need help.
 
-8. Create a Stop model. Remember that stops belongTo tours. Test it in tinker.
+8. Create a Stop model. Remember that stops belongTo tours. Test it in tinker. - DONE
 
-9. Create a Tour model. Remember that a tour hasMany stops. Test it in tinker.
+9. Create a Tour model. Remember that a tour hasMany stops. Test it in tinker. - DONE
 
 10. Create StopsController resource controller (-r flag).
 
