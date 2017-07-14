@@ -46,4 +46,21 @@ This website will have a public-facing homepage that lists the current tour date
 
 14. Begin working on the functions in StopsController and ToursController.
 
+15. Create a README.md file in your branch and document your work.
+
+16. Push your branch to origin (github).
+
+### Phase 1 - one more thing!
+
+We'll need to see your database to properly review your code.
+
+From the App directory in your project, at the command prompt, type:
+
+    pg_dump name-of-your-database > world-tour.sql
+
+Substitute the actual name of your database for 'name-of-your-database', of course.
+
+If world-tour.sql is created in your App directory, and it is full of comments and SQL commands, then you have done this step correctly. Make sure world-tour.sql is included when you submit your completed project branch.
+
+
 
