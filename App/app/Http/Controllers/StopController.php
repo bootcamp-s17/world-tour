@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Stop;
+
 use Illuminate\Http\Request;
+use \App\Stop;
 
 class StopController extends Controller
 {
@@ -14,7 +15,8 @@ class StopController extends Controller
      */
     public function index()
     {
-        //
+        $stops = Stop::all();
+        return ($stops);
     }
 
     /**
@@ -46,7 +48,8 @@ class StopController extends Controller
      */
     public function show(Stop $stop)
     {
-        //
+        $stop['tour'] = $stop->tour()->get(); 
+        return($stop);
     }
 
     /**

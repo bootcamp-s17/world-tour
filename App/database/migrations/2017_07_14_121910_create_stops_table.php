@@ -15,7 +15,12 @@ class CreateStopsTable extends Migration
     {
         Schema::create('stops', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('tour_id')->unsigned();
+            $table->foreign('tour_id')->references('id')->on('tours');
+            $table->datetime('when');
+            $table->string('where');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

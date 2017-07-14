@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Tour;
+
 use Illuminate\Http\Request;
+use \App\Tour;
 
 class TourController extends Controller
 {
@@ -14,7 +15,20 @@ class TourController extends Controller
      */
     public function index()
     {
-        //
+        //Get all tours
+        $tours = Tour::all();
+
+        //Get the stops for each tour
+        foreach($tours as $tour){
+            $stops = $tour->stops()->get();
+            $tour['stops'] = $stops;
+        }
+
+        //Return JSON
+        // return ($tours);
+
+        //Return View
+        return view('tours.index', compact('tours'));
     }
 
     /**
@@ -46,7 +60,9 @@ class TourController extends Controller
      */
     public function show(Tour $tour)
     {
-        //
+        $stops = $tour->stops()->get();
+        $tour['stops'] = $stops;
+        return($tour);
     }
 
     /**

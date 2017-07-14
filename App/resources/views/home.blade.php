@@ -11,6 +11,11 @@
                     You are logged in!
                 </div>
             </div>
+            <div class="links">
+                <a href="{{ url('/tour') }}">Tours</a>
+                <br>
+                <a href="{{ url('/stop') }}">Stops</a>
+            </div>
         </div>
     </div>
 </div>

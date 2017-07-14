@@ -2,9 +2,12 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Tour;
 
 class Tour extends Model
 {
-    //
+	//Access information from any stop on this tour
+    public function stops() {
+    	return $this->hasMany('App\Stop');
+    }
 }
