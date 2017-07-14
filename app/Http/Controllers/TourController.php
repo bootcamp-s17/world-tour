@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Tour;
+use App\Stop;
 use Illuminate\Http\Request;
 
 class TourController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,14 @@ class TourController extends Controller
      */
     public function index()
     {
-        return 'index';
+
+        $tours = Tour::all();
+
+        foreach ($tours as $tour) {
+            $tour['action'] = '/tours/' . $tour['id'];
+        };
+
+        return view('tours.index', compact('tours'));
     }
 
     /**
@@ -35,7 +48,10 @@ class TourController extends Controller
      */
     public function store(Request $request)
     {
-        return 'store';
+        $tour = new Tour;
+        $tour->name = request('tour_name');
+        $tour->save();
+        return back();
     }
 
     /**
@@ -46,7 +62,11 @@ class TourController extends Controller
      */
     public function show(Tour $tour)
     {
-        return 'show';
+        $stops = Stop::where('tour_id', '=', $tour->id)->get();
+        foreach ($stops as $stop) {
+            $stop['action'] = '/stops/' . $stop['id'];
+        }
+        return view('tours.show', compact('tour', 'stops'));
     }
 
     /**
@@ -78,8 +98,9 @@ class TourController extends Controller
      * @param  \App\Tour  $tour
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tour $tour)
-    {
-        return 'destory';
+    public function destroy($id)
+    {   
+        Tour::find($id)->delete();
+        return back();
     }
 }

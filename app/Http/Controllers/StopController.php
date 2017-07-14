@@ -3,18 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Stop;
+use App\Tour;
 use Illuminate\Http\Request;
 
 class StopController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return 'index';
+    {   
+
+        return view('stops.index');
     }
 
     /**
@@ -23,8 +30,9 @@ class StopController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return 'create';
+    {   
+        $tour = Tour::find(request('id'));
+        return view('stops/create', compact('tour'));
     }
 
     /**
@@ -35,7 +43,12 @@ class StopController extends Controller
      */
     public function store(Request $request)
     {
-        return 'store';
+        $stop = new Stop;
+        $stop->where = request('where');
+        $stop->when = request('when');
+        $stop->tour_id = request('tour_id');
+        $stop->save();
+        return back();
     }
 
     /**
@@ -46,7 +59,8 @@ class StopController extends Controller
      */
     public function show(Stop $stop)
     {
-        return 'show';
+        $stop['action'] = "/stops/" . $stop->id;
+        return view('stops.show', compact('stop'));
     }
 
     /**
@@ -68,8 +82,11 @@ class StopController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Stop $stop)
-    {
-        return 'update';
+    {   
+        $stop->when = request('when');
+        $stop->where = request('where');
+        $stop->save();
+        return back();
     }
 
     /**
@@ -78,8 +95,9 @@ class StopController extends Controller
      * @param  \App\Stop  $stop
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Stop $stop)
-    {
-        return 'destroy';
+    public function destroy($id)
+    {   
+        Stop::find($id)->delete();
+        return back();
     }
 }

@@ -12,12 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+   $tours = App\Tour::all();
+   $stops = App\Stop::all();
+   return view('index', compact('tours', 'stops'));
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
 
 Route::resource('tours', 'TourController');
 Route::resource('stops', 'StopController');
