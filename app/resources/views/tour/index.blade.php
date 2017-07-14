@@ -4,7 +4,7 @@
 
 <div class='container'>
 	
-	<form style="margin-bottom: 20px;" method="get" action="/ideas/create">
+	<form style="margin-bottom: 20px;" method="get" action="/tour/create">
 	    <button class="btn btn-success btn-xs" type="submit">Add</button>
 	</form>
 
@@ -40,9 +40,12 @@
 			  <br />
 			@endif
 
-		  @endforeach
+		  	@endforeach
 
-		  <br />
+			
+			<form style="margin-bottom: 20px;" method="get" action="/stops/create">
+				<button class="btn btn-success btn-xs" type="submit">Add Stop</button>
+			</form>
 		</div>
 		</div>
 	@endforeach

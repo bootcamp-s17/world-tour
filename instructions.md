@@ -46,7 +46,7 @@ This website will have a public-facing homepage that lists the current tour date
 
 14. Begin working on the functions in StopsController and ToursController. - IN PROGRESS
 
-15. Create a README.md file in your branch and document your work.
+<!-- 15. Create a README.md file in your branch and document your work. - DONE -->
 
 16. Push your branch to origin (github).
 

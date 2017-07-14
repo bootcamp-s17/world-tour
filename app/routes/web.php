@@ -17,4 +17,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/tour', 'ToursController');
-Route::resource('/stops', 'StopsController');
+Route::resource('/stops/create', 'StopsController');

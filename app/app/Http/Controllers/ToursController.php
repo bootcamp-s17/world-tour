@@ -39,7 +39,8 @@ class ToursController extends Controller
      */
     public function create()
     {
-        //
+        $tours = \App\Tour::all();
+        return view('tour.create', compact('tours'));
     }
 
     /**
@@ -50,7 +51,11 @@ class ToursController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tour = new \App\Tour;
+        $tour['name'] = $request->name;
+        $tour->save();
+
+        return redirect('/tour');
     }
 
     /**

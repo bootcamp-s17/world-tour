@@ -23,7 +23,9 @@ class StopsController extends Controller
      */
     public function create()
     {
-        //
+        $stops = \App\Stop::all();
+        $tours = \App\Tour::all();
+        return view('stops.create', compact('stops','tours'));
     }
 
     /**
